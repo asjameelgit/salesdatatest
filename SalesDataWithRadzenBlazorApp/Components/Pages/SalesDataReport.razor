@@ -1,0 +1,23 @@
+@page "/sales-data-report"
+
+<PageTitle>SalesDataReport</PageTitle>
+<RadzenRow>
+    <RadzenColumn Size="12">
+        <RadzenText Text="SalesDataReport" TextStyle="TextStyle.H3" TagName="TagName.H1" />
+    </RadzenColumn>
+</RadzenRow>
+
+<RadzenDataGrid AllowFiltering="true" AllowColumnResize="true" AllowAlternatingRows="false" FilterMode="FilterMode.Advanced" AllowSorting="true" 
+        PageSize="10" AllowPaging="true" PagerHorizontalAlign="HorizontalAlign.Left" ShowPagingSummary="true"
+        Data="@sales" ColumnWidth="300px" LogicalFilterOperator="LogicalFilterOperator.Or" SelectionMode="DataGridSelectionMode.Single">
+    <Columns>
+        <RadzenDataGridColumn Property="Segment" Filterable="false" Title="Segment" Frozen="true" Width="120px" TextAlign="TextAlign.Center" />        
+        <RadzenDataGridColumn Property="Country" Title="Country" Frozen="true" Width="120px" />
+        <RadzenDataGridColumn Property="Product" Title="Product" Width="120px" />
+        <RadzenDataGridColumn Property="Discount" Title="Discount" Width="120px" />
+        <RadzenDataGridColumn Property="UnitsSold" Title="Units Sold" Width="120px" />
+        <RadzenDataGridColumn Property="MfgPrice" Title="Mfg. Price" FormatString="{0:C}" Width="120px" />
+        <RadzenDataGridColumn Property="SalesPrice" Title="Sales Price" FormatString="{0:C}" Width="120px" />
+        <RadzenDataGridColumn Property="SalesDate" Title="Sale Date" FormatString="{0:d}" Width="120px" />       
+    </Columns>
+</RadzenDataGrid>
