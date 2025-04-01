@@ -3,3 +3,14 @@
 ################################################################################
 
 /.vs
+/SalesDataWithRadzenBlazorApp/.vs
+/SalesDataWithRadzenBlazorApp/bin/Debug/net8.0
+/SalesDataWithRadzenBlazorApp/obj
+/TestSalesData.Common/bin/Debug/net8.0
+/TestSalesData.Common/obj
+/TestSalesData.Service/bin/Debug/net8.0
+/TestSalesData.Service/obj
+/TestSalesData.Api/bin/Debug/net8.0
+/TestSalesData.Api/obj
+/SalesDataWithRadzenBlazorApp/logs
+/TestSalesData.Api/logs
