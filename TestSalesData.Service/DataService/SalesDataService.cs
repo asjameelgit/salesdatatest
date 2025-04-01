@@ -1,12 +1,14 @@
 ﻿using System.Text;
 using TestSalesData.Common.Models;
+using Microsoft.Extensions.Logging;
 
 namespace TestSalesData.Service.DataService
 {
-    public class SalesDataService() : ISalesDataService
+    public class SalesDataService(ILogger<SalesDataService> logger) : ISalesDataService
     {
         public async Task<List<SalesData>> GetAllSalesDataFromCsvAsync(string csvFilePath)
         {
+            logger.LogInformation($"in GetAllSalesDataFromCsvAsync with Path {csvFilePath}");
             try
             {
                 var result = new List<SalesData>();
@@ -38,7 +40,8 @@ namespace TestSalesData.Service.DataService
             }
             catch (Exception ex) 
             {
-                throw ex;
+                logger.LogError($"Error in GetAllSalesDataFromCsvAsync with Path {csvFilePath} - {ex.Message}");
+                throw;
             }
         }
     }

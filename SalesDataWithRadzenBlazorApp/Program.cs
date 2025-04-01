@@ -1,8 +1,14 @@
 using Radzen;
 using SalesDataWithRadzenBlazorApp.Components;
 using TestSalesData.Service.DataService;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.File("logs/salesdata.log", rollingInterval: RollingInterval.Day) // Log to a file
+    .CreateLogger();
 
 
 builder.Services.AddScoped<ISalesDataService, SalesDataService>();
@@ -19,6 +25,12 @@ builder.Services.AddRadzenCookieThemeService(options =>
     options.Duration = TimeSpan.FromDays(365);
 });
 builder.Services.AddHttpClient();
+
+builder.Services.AddLogging(loggingBuilder =>
+{
+    loggingBuilder.AddSerilog();
+});
+
 var app = builder.Build();
 
 
